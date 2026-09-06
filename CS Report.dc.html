@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/tokens/colors.css">
+<link rel="stylesheet" href="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/tokens/typography.css">
+<link rel="stylesheet" href="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/tokens/base.css">
+<link rel="stylesheet" href="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/styles.css">
+<script src="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/_ds_bundle.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: var(--surface-2); }
+  body { font-family: var(--font-ui); color: var(--ink-900); -webkit-font-smoothing: antialiased; }
+  a { color: var(--blue-600); text-decoration: none; }
+  a:hover { color: #0F65C0; }
+  * { box-sizing: border-box; }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--surface-2)">
+
+  <header style="position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:24px;height:56px;padding:0 24px;background:#fff;border-bottom:1px solid var(--border)">
+    <a href="Leadership.dc.html" style="display:flex;align-items:center;gap:10px;flex:none">
+      <img src="assets/jove-logo.svg" alt="JoVE" style="height:24px;width:auto;display:block">
+      <span style="font:500 18px/24px var(--font-ui);color:var(--ink-900)">Analytics</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:16px;min-width:0">
+      <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.SearchField" placeholder="Search for institutions" width="{{ searchWidth }}" icon="{{ icoSearch }}" hint-size="256px,36px"></x-import>
+      <span style="font:400 14px/20px var(--font-ui);color:var(--ink-500);white-space:nowrap">j.okonkwo@jove.com</span>
+      <div style="flex:none;width:36px;height:36px;border-radius:var(--radius-xs);background:var(--blue-100);color:var(--blue-600);display:flex;align-items:center;justify-content:center;font:500 14px/20px var(--font-ui)">JO</div>
+    </div>
+  </header>
+
+  <div style="display:flex;align-items:flex-start;min-height:calc(100vh - 56px)">
+
+    <aside style="position:sticky;top:56px;flex:none;width:250px;height:calc(100vh - 56px);overflow-y:auto;background:var(--surface-2);padding:24px 0 24px 20px">
+      <nav style="display:flex;flex-direction:column;gap:4px" aria-label="Primary">
+        <a href="Leadership.dc.html" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="home" style="width:18px;height:18px;color:var(--ink-500)"></i>Leadership</a>
+        <a href="Institution Detail.dc.html" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="briefcase" style="width:18px;height:18px;color:var(--ink-500)"></i>Institutions</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="file-text" style="width:18px;height:18px;color:var(--ink-500)"></i>Content details</a>
+        <a href="Education.dc.html" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="book-open" style="width:18px;height:18px;color:var(--ink-500)"></i>Education</a>
+        <a href="JoVE Labs.dc.html" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="flask-conical" style="width:18px;height:18px;color:var(--ink-500)"></i>JoVE Labs</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="video" style="width:18px;height:18px;color:var(--ink-500)"></i>Product details</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="database" style="width:18px;height:18px;color:var(--ink-500)"></i>Complete data</a>
+        <a href="Detailed Reports.dc.html" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="bar-chart-2" style="width:18px;height:18px;color:var(--ink-500)"></i>Detailed reports</a>
+        <a href="#" aria-current="page" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;background:#fff;border:1px solid var(--blue-300);border-radius:8px;font:700 14px/20px var(--font-ui);color:var(--blue-600)"><i data-lucide="headphones" style="width:18px;height:18px;color:var(--blue-600)"></i>CS report</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="list" style="width:18px;height:18px;color:var(--ink-500)"></i>Counter report</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="search-check" style="width:18px;height:18px;color:var(--ink-500)"></i>Citation Tracker</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="bot" style="width:18px;height:18px;color:var(--ink-500)"></i>Crawl Monitor</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="globe" style="width:18px;height:18px;color:var(--ink-500)"></i>World report</a>
+      </nav>
+    </aside>
+
+    <main style="flex:1;min-width:0;background:var(--surface-2);border-left:1px solid var(--border-2);padding:32px">
+      <h1 style="margin:0 0 24px;font:600 20px/28px var(--font-ui);color:var(--ink-900)">CS report</h1>
+
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:16px">
+        <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.FilterControl" label="All institutions" trailing-icon="{{ icoChevron }}" hint-size="auto,36px"></x-import>
+        <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.FilterControl" label="As of: 31-08-2026" leading-icon="{{ icoCalendar }}" hint-size="auto,36px"></x-import>
+        <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.FilterControl" label="All CS/Sales Member" trailing-icon="{{ icoChevron }}" hint-size="auto,36px"></x-import>
+      </div>
+
+      <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:4px 0 0">
+        <div style="overflow-x:auto">
+          <div style="min-width:2600px">
+            <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.DataTable" columns="{{ cols }}" rows="{{ rows }}" hint-size="100%,420px"></x-import>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+const n = (v) => (v == null ? "" : v.toLocaleString("en-US"));
+
+// institution id, name, parent, TAPV 12M, Labs views 12M, Labs views TM
+// Labs views 12M is that institution's Analysis-table plays (Trainer + Trainee).
+const BASE = [
+  [2179, "Harvard University", "", 486204, 1150, 96],
+  [1188, "Karolinska Institutet", "", 312640, 704, 62],
+  [2610, "American University of Beirut Medical Center", "American University of Beirut", 208470, 576, 48],
+  [1043, "University of Toronto", "", 402180, 414, 36],
+  [3320, "Charité Universitätsmedizin Berlin", "", 187300, 96, 22],
+  [2044, "University of Ibadan", "", 96420, 306, 26],
+  [1502, "National University of Singapore", "", 274300, 48, 4],
+  [4102, "Delft University of Technology", "", 158900, 26, 8],
+  [2860, "Universidad de Chile", "", 132640, null, null],
+  [3475, "University of Cape Town", "", 84120, null, null]
+];
+
+const ROWS = BASE.map((r) => {
+  const tapv12 = r[3];
+  const tm = (x) => Math.round((x / 12) * 1.05);
+  const part = (f) => Math.round(tapv12 * f);
+  const ebpv12 = part(0.14), epv12 = part(0.36), rpv12 = part(0.52), bpv12 = part(0.12);
+  return {
+    instId: r[0],
+    inst: r[1],
+    parent: r[2],
+    labs12: n(r[4]),
+    labsTm: n(r[5]),
+    tapv12: n(tapv12), tapvTm: n(tm(tapv12)),
+    ebpv12: n(ebpv12), ebpvTm: n(tm(ebpv12)),
+    epv12: n(epv12), epvTm: n(tm(epv12)),
+    rpv12: n(rpv12), rpvTm: n(tm(rpv12)),
+    bpv12: n(bpv12), bpvTm: n(tm(bpv12))
+  };
+});
+
+class Component extends DCLogic {
+  componentDidMount() { this.hydrateIcons(); }
+  componentDidUpdate() { this.hydrateIcons(); }
+  componentWillUnmount() { if (this._timer) clearInterval(this._timer); }
+
+  hydrateIcons() {
+    const go = () => { try { window.lucide.createIcons(); } catch (e) { /* not ready */ } };
+    if (window.lucide) { go(); return; }
+    if (this._timer) return;
+    this._timer = setInterval(() => {
+      if (window.lucide) { clearInterval(this._timer); this._timer = null; go(); }
+    }, 200);
+  }
+
+  svg(paths, size) {
+    return React.createElement(
+      "svg",
+      { width: size || 16, height: size || 16, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor",
+        strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", style: { flex: "none" } },
+      paths.map((d, i) => React.createElement("path", { key: i, d: d }))
+    );
+  }
+
+  renderVals() {
+    const col = (header, key, kind, sub) => ({ header: header, key: key, kind: kind, sub: sub });
+    // Labs period sub-label keeps its period and gains a second line noting it is part of TAPV.
+    const subInTapv = (period) => React.createElement(React.Fragment, null, period, React.createElement("div", null, "included in TAPV"));
+    return {
+      searchWidth: 256,
+      icoSearch: this.svg(["M11 3a8 8 0 1 0 0 16 8 8 0 0 0 0-16z", "m21 21-4.3-4.3"], 18),
+      icoChevron: this.svg(["m6 9 6 6 6-6"]),
+      icoCalendar: this.svg(["M8 2v4", "M16 2v4", "M5 4h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z", "M3 10h18"]),
+      rows: ROWS,
+      cols: [
+        col("Institution ID", "instId", "num"),
+        col("Insti. Name", "inst", "name"),
+        col("Parent Insti. Name", "parent"),
+        col("TAPV 12M", "tapv12", "num", "Sep 25 – Aug 26"),
+        col("TAPV TM", "tapvTm", "num", "Aug 2026"),
+        col("EBPV 12M", "ebpv12", "num", "Sep 25 – Aug 26"),
+        col("EBPV TM", "ebpvTm", "num", "Aug 2026"),
+        col("EPV 12M", "epv12", "num", "Sep 25 – Aug 26"),
+        col("EPV TM", "epvTm", "num", "Aug 2026"),
+        col("RPV 12M", "rpv12", "num", "Sep 25 – Aug 26"),
+        col("RPV TM", "rpvTm", "num", "Aug 2026"),
+        col("BPV 12M", "bpv12", "num", "Sep 25 – Aug 26"),
+        col("BPV TM", "bpvTm", "num", "Aug 2026"),
+        col("Labs video plays 12M", "labs12", "num", subInTapv("Sep 25 – Aug 26")),
+        col("Labs video plays TM", "labsTm", "num", subInTapv("Aug 2026"))
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

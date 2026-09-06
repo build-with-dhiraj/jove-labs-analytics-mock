@@ -1,0 +1,35 @@
+/* JoVE Analytics — type tokens & helper classes.
+   Two families: Geist for all UI and prose, Inter for big metric figures and any
+   tabular numerals (its geometric digits read cleanly at 24–30px). */
+
+:root {
+  /* ---------- Type families ---------- */
+  --font-ui:  'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-num: 'Inter', system-ui, sans-serif; /* big metric figures / tabular numerals */
+
+  /* ---------- Semantic type roles (size / line-height / weight) ---------- */
+  /* Page title  — "Overview"          */ --t-page-size: 24px;      --t-page-lh: 32px;      --t-page-weight: 700;
+  /* Section     — "Views"             */ --t-section-size: 18px;   --t-section-lh: 24px;   --t-section-weight: 600;
+  /* Card title  — panel headers        */ --t-cardtitle-size: 16px; --t-cardtitle-lh: 24px; --t-cardtitle-weight: 600;
+  /* Metric value (Inter)              */ --t-metric-size: 24px;    --t-metric-lh: 32px;    --t-metric-weight: 700;
+  /* Metric value lg (KPI hero)        */ --t-metric-lg-size: 30px; --t-metric-lg-lh: 36px; --t-metric-lg-weight: 800;
+  /* Label / metric caption            */ --t-label-size: 14px;     --t-label-lh: 20px;     --t-label-weight: 400;
+  /* Body                              */ --t-body-size: 14px;      --t-body-lh: 20px;      --t-body-weight: 400;
+  /* Nav item                          */ --t-nav-size: 14px;       --t-nav-lh: 20px;       --t-nav-weight: 500;
+  /* Table header                      */ --t-thead-size: 12px;     --t-thead-lh: 16px;     --t-thead-weight: 400;
+  /* Caption / micro                   */ --t-caption-size: 12px;   --t-caption-lh: 16px;   --t-caption-weight: 400;
+  /* Chip / legend (Inter SemiBold)    */ --t-chip-size: 11px;      --t-chip-lh: 14px;      --t-chip-weight: 600;
+}
+
+/* ---------- Helper classes (opt-in; the type roles above are the source of truth) ---------- */
+.t-page      { font: var(--t-page-weight) var(--t-page-size)/var(--t-page-lh) var(--font-ui); color: var(--ink-900); letter-spacing: -0.01em; }
+.t-section   { font: var(--t-section-weight) var(--t-section-size)/var(--t-section-lh) var(--font-ui); color: var(--ink-900); }
+.t-cardtitle { font: var(--t-cardtitle-weight) var(--t-cardtitle-size)/var(--t-cardtitle-lh) var(--font-ui); color: var(--ink-900); }
+.t-metric    { font: var(--t-metric-weight) var(--t-metric-size)/var(--t-metric-lh) var(--font-num); color: var(--ink-900); letter-spacing: -0.02em; }
+.t-metric-lg { font: var(--t-metric-lg-weight) var(--t-metric-lg-size)/var(--t-metric-lg-lh) var(--font-num); color: var(--ink-900); letter-spacing: -0.02em; }
+.t-label     { font: var(--t-label-weight) var(--t-label-size)/var(--t-label-lh) var(--font-ui); color: var(--ink-550); }
+.t-body      { font: var(--t-body-weight) var(--t-body-size)/var(--t-body-lh) var(--font-ui); color: var(--ink-600); }
+.t-nav       { font: var(--t-nav-weight) var(--t-nav-size)/var(--t-nav-lh) var(--font-ui); }
+.t-thead     { font: var(--t-thead-weight) var(--t-thead-size)/var(--t-thead-lh) var(--font-ui); color: var(--ink-400); }
+.t-caption   { font: var(--t-caption-weight) var(--t-caption-size)/var(--t-caption-lh) var(--font-ui); color: var(--ink-400); }
+.t-chip      { font: var(--t-chip-weight) var(--t-chip-size)/var(--t-chip-lh) var(--font-num); }

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/tokens/colors.css">
+<link rel="stylesheet" href="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/tokens/typography.css">
+<link rel="stylesheet" href="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/tokens/base.css">
+<link rel="stylesheet" href="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/styles.css">
+<script src="_ds/jove-analytics-design-system-9803c3df-0aa5-453c-839a-fa30cf00c316/_ds_bundle.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: var(--surface-2); }
+  body { font-family: var(--font-ui); color: var(--ink-900); -webkit-font-smoothing: antialiased; }
+  a { color: var(--blue-600); text-decoration: none; }
+  a:hover { color: #0F65C0; }
+  * { box-sizing: border-box; }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--surface-2)">
+
+  <header style="position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:24px;height:56px;padding:0 24px;background:#fff;border-bottom:1px solid var(--border)">
+    <a href="Leadership.dc.html" style="display:flex;align-items:center;gap:10px;flex:none">
+      <img src="assets/jove-logo.svg" alt="JoVE" style="height:24px;width:auto;display:block">
+      <span style="font:500 18px/24px var(--font-ui);color:var(--ink-900)">Analytics</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:16px;min-width:0">
+      <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.SearchField" placeholder="Search for institutions" width="{{ searchWidth }}" icon="{{ icoSearch }}" hint-size="256px,36px"></x-import>
+      <span style="font:400 14px/20px var(--font-ui);color:var(--ink-500);white-space:nowrap">j.okonkwo@jove.com</span>
+      <div style="flex:none;width:36px;height:36px;border-radius:var(--radius-xs);background:var(--blue-100);color:var(--blue-600);display:flex;align-items:center;justify-content:center;font:500 14px/20px var(--font-ui)">JO</div>
+    </div>
+  </header>
+
+  <div style="display:flex;align-items:flex-start;min-height:calc(100vh - 56px)">
+
+    <aside style="position:sticky;top:56px;flex:none;width:250px;height:calc(100vh - 56px);overflow-y:auto;background:var(--surface-2);padding:24px 0 24px 20px">
+      <nav style="display:flex;flex-direction:column;gap:4px" aria-label="Primary">
+        <a href="#" aria-current="page" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;background:#fff;border:1px solid var(--blue-300);border-radius:8px;font:700 14px/20px var(--font-ui);color:var(--blue-600)"><i data-lucide="home" style="width:18px;height:18px;color:var(--blue-600)"></i>Leadership</a>
+        <a href="Institution Detail.dc.html" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="briefcase" style="width:18px;height:18px;color:var(--ink-500)"></i>Institutions</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="file-text" style="width:18px;height:18px;color:var(--ink-500)"></i>Content details</a>
+        <a href="Education.dc.html" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="book-open" style="width:18px;height:18px;color:var(--ink-500)"></i>Education</a>
+        <a href="JoVE Labs.dc.html" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="flask-conical" style="width:18px;height:18px;color:var(--ink-500)"></i>JoVE Labs</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="video" style="width:18px;height:18px;color:var(--ink-500)"></i>Product details</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="database" style="width:18px;height:18px;color:var(--ink-500)"></i>Complete data</a>
+        <a href="Detailed Reports.dc.html" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="bar-chart-2" style="width:18px;height:18px;color:var(--ink-500)"></i>Detailed reports</a>
+        <a href="CS Report.dc.html" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="headphones" style="width:18px;height:18px;color:var(--ink-500)"></i>CS report</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="list" style="width:18px;height:18px;color:var(--ink-500)"></i>Counter report</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="search-check" style="width:18px;height:18px;color:var(--ink-500)"></i>Citation Tracker</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="bot" style="width:18px;height:18px;color:var(--ink-500)"></i>Crawl Monitor</a>
+        <a href="#" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 14px;border:1px solid transparent;border-radius:8px;font:500 14px/20px var(--font-ui);color:var(--ink-600)" style-hover="background:var(--surface-3)"><i data-lucide="globe" style="width:18px;height:18px;color:var(--ink-500)"></i>World report</a>
+      </nav>
+    </aside>
+
+    <main style="flex:1;min-width:0;background:var(--surface-2);border-left:1px solid var(--border-2)">
+
+      <div style="padding:20px 32px;background:#fff;border-bottom:1px solid var(--border)">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font:400 14px/20px var(--font-ui);color:var(--ink-500)">Product line:</span>
+            <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.FilterControl" label="All product lines" trailing-icon="{{ icoChevron }}" hint-size="auto,36px"></x-import>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font:400 14px/20px var(--font-ui);color:var(--ink-500)">Institution:</span>
+            <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.FilterControl" label="All institutions" trailing-icon="{{ icoChevron }}" hint-size="auto,36px"></x-import>
+          </div>
+        </div>
+        <p style="margin:8px 0 0;font:400 14px/20px var(--font-ui);color:var(--ink-500)">Sep 2025 – Aug 2026 compared with the previous 12 months.</p>
+      </div>
+
+      <div style="padding:32px 32px 80px">
+
+        <section style="margin:0;padding-bottom:40px;border-bottom:1px solid var(--border)">
+          <h2 style="margin:0 0 16px;font:600 18px/24px var(--font-ui);color:var(--ink-900)">Video Views Distribution</h2>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));align-items:start;gap:16px">
+            <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.MetricCard" label="Website" value="{{ v0 }}" pct="{{ d0 }}" dir="{{ dir0 }}" active="{{ a0 }}" on-click="{{ p0 }}" hint-size="100%,92px"></x-import>
+            <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.MetricCard" label="LTI" value="{{ v1 }}" pct="{{ d1 }}" dir="{{ dir1 }}" active="{{ a1 }}" on-click="{{ p1 }}" hint-size="100%,92px"></x-import>
+            <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.MetricCard" label="Embed" value="{{ v2 }}" pct="{{ d2 }}" dir="{{ dir2 }}" active="{{ a2 }}" on-click="{{ p2 }}" hint-size="100%,92px"></x-import>
+            <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.MetricCard" label="My Class" value="{{ v3 }}" pct="{{ d3 }}" dir="{{ dir3 }}" active="{{ a3 }}" on-click="{{ p3 }}" hint-size="100%,92px"></x-import>
+            <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+              <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.MetricCard" label="JoVE Labs" value="{{ v4 }}" active="{{ a4 }}" on-click="{{ p4 }}" hint-size="100%,92px"></x-import>
+              <p style="margin:0;font:400 12px/16px var(--font-ui);color:var(--ink-400);text-wrap:pretty">Labs plays follow the video's product. Education here means Lab Manual and Core played inside Labs.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;background:#fff;border:1px solid var(--blue-300);border-radius:var(--radius-md);padding:20px">
+            <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+              <div style="min-width:0">
+                <div style="font:400 14px/20px var(--font-ui);color:var(--ink-550)">{{ selLabel }}</div>
+                <div style="display:flex;align-items:baseline;gap:10px;margin-top:4px">
+                  <span style="font:700 30px/36px var(--font-num);color:var(--ink-900);letter-spacing:-0.02em">{{ selValue }}</span>
+                  <sc-if value="{{ selHasCompare }}">
+                    <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.ChangeValue" dir="{{ selDir }}" hint-size="52px,20px">{{ selDelta }}</x-import>
+                  </sc-if>
+                  <sc-if value="{{ selNoCompare }}" hint-placeholder-val="{{ true }}">
+                    <span style="font:400 14px/20px var(--font-ui);color:var(--ink-500)">New this period</span>
+                  </sc-if>
+                </div>
+              </div>
+              <sc-if value="{{ selHasCompare }}">
+                <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.ChartLegend" cur-label="Sep 2025 – Aug 2026" cmp-label="Previous 12 months" hint-size="320px,20px"></x-import>
+              </sc-if>
+              <sc-if value="{{ selNoCompare }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;align-items:center;gap:8px;justify-content:flex-end;font:400 14px/20px var(--font-ui);color:var(--ink-550)">
+                  <span style="width:24px;height:0;border-top:2px solid var(--blue-600)"></span>Sep 2025 – Aug 2026
+                </div>
+              </sc-if>
+            </div>
+            <hr style="margin:16px 0 8px;border:0;border-top:1px solid var(--border-2)">
+            <sc-if value="{{ selHasCompare }}">
+              <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.LineChart" months="{{ months }}" current="{{ chartCurrent }}" compare="{{ chartCompare }}" maxY="{{ chartMax }}" height="{{ chartHeight }}" cmp-label="Previous 12 months" hint-size="100%,320px"></x-import>
+            </sc-if>
+            <sc-if value="{{ selNoCompare }}" hint-placeholder-val="{{ true }}">{{ panelSingleChart }}</sc-if>
+          </div>
+        </section>
+
+        <section style="margin:40px 0 0">
+          <h2 style="margin:0 0 16px;font:600 18px/24px var(--font-ui);color:var(--ink-900)">Feature Usage</h2>
+
+          <div style="display:flex;flex-direction:column;gap:24px">
+
+            <article style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:20px">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap">
+                <div style="min-width:0">
+                  <h3 style="margin:0;font:600 16px/24px var(--font-ui);color:var(--ink-900)">Quiz</h3>
+                  <div style="display:flex;align-items:flex-end;gap:10px;margin-top:6px">
+                    <div>
+                      <div style="font:400 14px/20px var(--font-ui);color:var(--ink-550)">{{ quizLabel }}</div>
+                      <div style="font:700 30px/36px var(--font-num);color:var(--ink-900);letter-spacing:-0.02em">{{ quizValue }}</div>
+                    </div>
+                    <div style="margin-bottom:6px;font:500 14px/20px var(--font-ui)">
+                      <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.ChangeValue" dir="{{ quizDir }}" hint-size="48px,20px">{{ quizPct }}</x-import>
+                    </div>
+                  </div>
+                </div>
+                <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.SegmentedToggle" options="{{ quizOptions }}" value="{{ quizMetric }}" on-change="{{ setQuizMetric }}" hint-size="220px,36px"></x-import>
+              </div>
+              <hr style="margin:20px 0 8px;border:0;border-top:1px solid var(--border-2)">
+              <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.ChartLegend" cur-label="Sep 2025 – Aug 2026" cmp-label="Previous 12 months" hint-size="320px,20px"></x-import>
+              <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.LineChart" months="{{ months }}" current="{{ quizCurrent }}" compare="{{ quizCompare }}" maxY="{{ quizMax }}" height="{{ featureHeight }}" cmp-label="Previous 12 months" hint-size="100%,288px"></x-import>
+            </article>
+
+            <article style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:20px">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap">
+                <div style="min-width:0">
+                  <h3 style="margin:0;font:600 16px/24px var(--font-ui);color:var(--ink-900)">Playlist</h3>
+                  <div style="display:flex;align-items:flex-end;gap:10px;margin-top:6px">
+                    <div>
+                      <div style="font:400 14px/20px var(--font-ui);color:var(--ink-550)">{{ playlistLabel }}</div>
+                      <div style="font:700 30px/36px var(--font-num);color:var(--ink-900);letter-spacing:-0.02em">{{ playlistValue }}</div>
+                    </div>
+                    <div style="margin-bottom:6px;font:500 14px/20px var(--font-ui)">
+                      <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.ChangeValue" dir="{{ playlistDir }}" hint-size="48px,20px">{{ playlistPct }}</x-import>
+                    </div>
+                  </div>
+                </div>
+                <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.SegmentedToggle" options="{{ playlistOptions }}" value="{{ playlistMetric }}" on-change="{{ setPlaylistMetric }}" hint-size="210px,36px"></x-import>
+              </div>
+              <hr style="margin:20px 0 8px;border:0;border-top:1px solid var(--border-2)">
+              <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.ChartLegend" cur-label="Sep 2025 – Aug 2026" cmp-label="Previous 12 months" hint-size="320px,20px"></x-import>
+              <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.LineChart" months="{{ months }}" current="{{ playlistCurrent }}" compare="{{ playlistCompare }}" maxY="{{ playlistMax }}" height="{{ featureHeight }}" cmp-label="Previous 12 months" hint-size="100%,288px"></x-import>
+            </article>
+
+            <article style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:20px">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap">
+                <div style="min-width:0">
+                  <h3 style="margin:0;font:600 16px/24px var(--font-ui);color:var(--ink-900)">JoVE Labs</h3>
+                  <div style="display:flex;align-items:flex-end;gap:10px;margin-top:6px">
+                    <div>
+                      <div style="font:400 14px/20px var(--font-ui);color:var(--ink-550)">{{ labsLabel }}</div>
+                      <div style="font:700 30px/36px var(--font-num);color:var(--ink-900);letter-spacing:-0.02em">{{ labsValue }}</div>
+                    </div>
+                    <div style="margin-bottom:6px;font:400 14px/20px var(--font-ui);color:var(--ink-500)">New this period</div>
+                  </div>
+                </div>
+                <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.SegmentedToggle" options="{{ labsOptions }}" value="{{ labsMetric }}" on-change="{{ setLabsMetric }}" style="white-space:nowrap" hint-size="200px,36px"></x-import>
+              </div>
+              <hr style="margin:20px 0 8px;border:0;border-top:1px solid var(--border-2)">
+              <div style="display:flex;align-items:center;gap:8px;justify-content:flex-end;font:400 14px/20px var(--font-ui);color:var(--ink-550)">
+                <span style="width:24px;height:0;border-top:2px solid var(--blue-600)"></span>Sep 2025 – Aug 2026
+              </div>
+              {{ labsFeatureChart }}
+              <div style="display:flex;justify-content:flex-end;margin-top:4px">
+                <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.Button" variant="link" on-click="{{ goLabs }}" icon-right="{{ icoChevronRight }}" hint-size="190px,36px">View JoVE Labs Analysis</x-import>
+              </div>
+            </article>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px">
+              <article style="min-width:0;background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:20px">
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap">
+                  <div style="min-width:0">
+                    <h3 style="margin:0;font:600 16px/24px var(--font-ui);color:var(--ink-900)">Embed</h3>
+                    <div style="display:flex;align-items:flex-end;gap:10px;margin-top:6px">
+                      <div>
+                        <div style="font:400 14px/20px var(--font-ui);color:var(--ink-550)">{{ embedLabel }}</div>
+                        <div style="font:700 24px/32px var(--font-num);color:var(--ink-900);letter-spacing:-0.02em">{{ embedValue }}</div>
+                      </div>
+                      <div style="margin-bottom:4px;font:500 14px/20px var(--font-ui)">
+                        <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.ChangeValue" dir="{{ embedDir }}" hint-size="48px,20px">{{ embedPct }}</x-import>
+                      </div>
+                    </div>
+                  </div>
+                  <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.SegmentedToggle" options="{{ embedOptions }}" value="{{ embedMetric }}" on-change="{{ setEmbedMetric }}" hint-size="200px,36px"></x-import>
+                </div>
+                <hr style="margin:20px 0 8px;border:0;border-top:1px solid var(--border-2)">
+                <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.LineChart" months="{{ months }}" current="{{ embedCurrent }}" compare="{{ embedCompare }}" maxY="{{ embedMax }}" height="{{ compactHeight }}" cmp-label="Previous 12 months" hint-size="100%,224px"></x-import>
+              </article>
+
+              <article style="min-width:0;background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:20px">
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap">
+                  <div style="min-width:0">
+                    <h3 style="margin:0;font:600 16px/24px var(--font-ui);color:var(--ink-900)">LTI</h3>
+                    <div style="display:flex;align-items:flex-end;gap:10px;margin-top:6px">
+                      <div>
+                        <div style="font:400 14px/20px var(--font-ui);color:var(--ink-550)">{{ ltiLabel }}</div>
+                        <div style="font:700 24px/32px var(--font-num);color:var(--ink-900);letter-spacing:-0.02em">{{ ltiValue }}</div>
+                      </div>
+                      <div style="margin-bottom:4px;font:500 14px/20px var(--font-ui)">
+                        <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.ChangeValue" dir="{{ ltiDir }}" hint-size="48px,20px">{{ ltiPct }}</x-import>
+                      </div>
+                    </div>
+                  </div>
+                  <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.SegmentedToggle" options="{{ ltiOptions }}" value="{{ ltiMetric }}" on-change="{{ setLtiMetric }}" hint-size="200px,36px"></x-import>
+                </div>
+                <hr style="margin:20px 0 8px;border:0;border-top:1px solid var(--border-2)">
+                <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.LineChart" months="{{ months }}" current="{{ ltiCurrent }}" compare="{{ ltiCompare }}" maxY="{{ ltiMax }}" height="{{ compactHeight }}" cmp-label="Previous 12 months" hint-size="100%,224px"></x-import>
+              </article>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440},&quot;selectedSource&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Website&quot;,&quot;LTI&quot;,&quot;Embed&quot;,&quot;My Class&quot;,&quot;JoVE Labs&quot;],&quot;default&quot;:&quot;JoVE Labs&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Video Views Distribution&quot;}}">
+const MONTHS = ["Sep","Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"];
+
+const SOURCES = [
+  { label: "Website", cmpFactor: 0.971,
+    current: [1102340,1128760,1154020,1171480,1188630,1196540,1204880,1218350,1230470,1241980,1268510,1302020] },
+  { label: "LTI", cmpFactor: 0.918,
+    current: [286400,298100,304600,312200,318900,324500,330800,336400,342900,348600,356200,368300] },
+  { label: "Embed", cmpFactor: 0.944,
+    current: [148600,152300,158900,163400,168200,172600,176900,181300,186700,190400,195800,208900] },
+  { label: "My Class", cmpFactor: 0.972,
+    current: [141200,146800,151400,155900,159600,163100,167400,171800,175200,179600,184300,190100] },
+  { label: "JoVE Labs", noCompare: true,
+    current: [0,0,86,180,262,340,412,486,560,660,880,954] }
+];
+
+const sum = (a) => a.reduce((t, n) => t + n, 0);
+
+SOURCES.forEach((s) => {
+  s.total = sum(s.current);
+  s.value = s.total.toLocaleString("en-US");
+  if (s.noCompare) {
+    // Labs has no previous period of counted plays, so no delta and no comparison series.
+    s.compare = [];
+    s.max = Math.max.apply(null, s.current);
+    return;
+  }
+  if (!s.compare) s.compare = s.current.map((n) => Math.round(n * s.cmpFactor));
+  s.pastTotal = sum(s.compare);
+  const change = s.pastTotal === 0 ? 0 : ((s.total - s.pastTotal) / s.pastTotal) * 100;
+  s.dir = change < 0 ? "down" : "up";
+  s.delta = (change < 0 ? "\u2212" : "+") + Math.abs(Math.round(change)) + "%";
+  s.max = Math.max.apply(null, s.current.concat(s.compare));
+});
+
+// Feature Usage — Quiz and Playlist full width, JoVE Labs full width, Embed + LTI as a pair.
+const SHAPE = [70, 72, 75, 77, 80, 82, 84, 86, 88, 91, 94, 101];
+const LABS_RAMP = [0, 0, 86, 180, 262, 340, 412, 486, 560, 660, 880, 954];
+const LABS_CREATED = [0, 0, 18, 36, 58, 80, 102, 124, 146, 164, 180, 196];
+
+function metric(label, total, pct, opts) {
+  const o = opts || {};
+  let cur;
+  if (o.series) cur = o.series.slice();
+  else {
+    const w = o.shape || SHAPE;
+    const wsum = w.reduce((a, b) => a + b, 0);
+    cur = w.map((x) => Math.round((total * x) / wsum));
+  }
+  const f = 1 / (1 + pct / 100);
+  const cmp = o.noCompare ? [] : cur.map((v) => Math.round(v * f));
+  return {
+    label: label,
+    value: total.toLocaleString("en-US"),
+    pct: o.noCompare ? null : (pct < 0 ? "\u2212" : "+") + Math.abs(pct) + "%",
+    dir: pct < 0 ? "down" : "up",
+    current: cur,
+    compare: cmp,
+    max: Math.max.apply(null, cur.concat(cmp))
+  };
+}
+
+const FEATURES = {
+  quiz: { toggle: ["Submissions", "Views"], metrics: [metric("Total Submissions", 486204, 18), metric("Total Views", 1204880, 12)] },
+  playlist: { toggle: ["Creations", "Views"], metrics: [metric("Total Creations", 92470, 14), metric("Total Views", 640120, 9)] },
+  labs: { toggle: ["Views", "Labs created"], metrics: [metric("Total Views", 4820, 0, { series: LABS_RAMP, noCompare: true }), metric("Labs created", 196, 0, { series: LABS_CREATED, noCompare: true })] },
+  embed: { toggle: ["Views", "Integrations"], metrics: [metric("Total Views", 2104000, 6), metric("Total Integrations", 6234, 11)] },
+  lti: { toggle: ["Views", "Integrations"], metrics: [metric("Total Views", 3927900, 9), metric("Total Integrations", 8412, 12)] }
+};
+
+const SETTER = { quiz: "setQuizMetric", playlist: "setPlaylistMetric", labs: "setLabsMetric", embed: "setEmbedMetric", lti: "setLtiMetric" };
+
+/** Single-series hover chart: the DS LineChart plus a one-line tooltip (Labs has no compare period). */
+function LabsHoverChart(props) {
+  const ns = window.JoVEAnalyticsDesignSystem_9803c3 || {};
+  const [hover, setHover] = React.useState(null);
+  const months = props.months, current = props.current, maxY = props.maxY, h = props.height;
+  const W = 1040, padL = 56, padR = 16, padT = 16, padB = 28;
+  const innerW = W - padL - padR, innerH = h - padT - padB, n = months.length;
+  const xu = (i) => padL + (n === 1 ? 0 : (i / (n - 1)) * innerW);
+  const yu = (v) => padT + innerH - (v / maxY) * innerH;
+  const onMove = (e) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    const px = ((e.clientX - r.left) / r.width) * W;
+    let i = Math.round(((px - padL) / innerW) * (n - 1));
+    setHover(Math.max(0, Math.min(n - 1, i)));
+  };
+  const pct = (v, total) => (v / total) * 100 + "%";
+  return React.createElement("div", { style: { position: "relative" } },
+    React.createElement(ns.LineChart, { months: months, current: current, compare: [], maxY: maxY, height: h }),
+    React.createElement("div", {
+      style: { position: "absolute", inset: 0 },
+      onMouseMove: onMove,
+      onMouseLeave: () => setHover(null)
+    }, hover != null ? React.createElement(React.Fragment, null,
+      React.createElement("div", { style: { position: "absolute", left: pct(xu(hover), W), top: pct(padT, h), height: pct(innerH, h), width: 1, background: "var(--grid-line)" } }),
+      React.createElement("div", { style: { position: "absolute", left: pct(xu(hover), W), top: pct(yu(current[hover]), h), width: 9, height: 9, marginLeft: -4.5, marginTop: -4.5, borderRadius: "50%", background: "var(--blue-600)", border: "2px solid #fff" } }),
+      React.createElement("div", { style: { position: "absolute", left: pct(xu(hover), W), top: 8, transform: "translateX(-50%)", background: "#fff", boxShadow: "var(--shadow-pop)", borderRadius: 8, padding: "12px 16px", whiteSpace: "nowrap", pointerEvents: "none" } },
+        React.createElement("div", { style: { borderLeft: "2px solid var(--blue-600)", paddingLeft: 10 } },
+          React.createElement("div", { style: { font: "400 12px/16px var(--font-ui)", color: "var(--ink-400)" } }, months[hover]),
+          React.createElement("div", { style: { font: "700 16px/22px var(--font-num)", color: "var(--ink-900)" } }, Number(current[hover]).toLocaleString("en-US"))
+        )
+      )
+    ) : null)
+  );
+}
+
+class Component extends DCLogic {
+  state = { source: 4, feature: { quiz: 0, playlist: 0, labs: 0, embed: 0, lti: 0 } };
+
+  componentDidMount() {
+    const i = SOURCES.findIndex((s) => s.label === this.props.selectedSource);
+    if (i >= 0 && i !== this.state.source) this.setState({ source: i });
+    this.hydrateIcons();
+  }
+  componentDidUpdate() { this.hydrateIcons(); }
+  componentWillUnmount() { if (this._timer) clearInterval(this._timer); }
+
+  hydrateIcons() {
+    const go = () => { try { window.lucide.createIcons(); } catch (e) { /* not ready */ } };
+    if (window.lucide) { go(); return; }
+    if (this._timer) return;
+    this._timer = setInterval(() => {
+      if (window.lucide) { clearInterval(this._timer); this._timer = null; go(); }
+    }, 200);
+  }
+
+  svg(paths, size) {
+    return React.createElement(
+      "svg",
+      { width: size || 16, height: size || 16, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor",
+        strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", style: { flex: "none" } },
+      paths.map((d, i) => React.createElement("path", { key: i, d: d }))
+    );
+  }
+
+  renderVals() {
+    const ns = window.JoVEAnalyticsDesignSystem_9803c3 || {};
+    const CV = ns.ChangeValue;
+    const s = SOURCES[this.state.source];
+    const niceMax = (m) => {
+      const step = Math.pow(10, Math.floor(Math.log10(m))) / 2;
+      return Math.ceil(m / step) * step;
+    };
+
+    const out = {
+      searchWidth: 256,
+      icoChevron: this.svg(["m6 9 6 6 6-6"]),
+      icoSearch: this.svg(["M11 3a8 8 0 1 0 0 16 8 8 0 0 0 0-16z", "m21 21-4.3-4.3"], 18),
+
+      months: MONTHS,
+      chartCurrent: s.current,
+      chartCompare: s.compare,
+      chartMax: niceMax(s.max),
+      chartHeight: 320,
+      selLabel: s.label + " Video Views",
+      selValue: s.value,
+      selDelta: s.delta,
+      selDir: s.dir,
+      selHasCompare: !s.noCompare,
+      selNoCompare: s.noCompare === true,
+
+      icoChevronRight: this.svg(["m9 18 6-6-6-6"]),
+      featureHeight: 288,
+      compactHeight: 224,
+      panelSingleChart: React.createElement(LabsHoverChart, { months: MONTHS, current: s.current, maxY: niceMax(s.max), height: 320 }),
+      goLabs: () => { window.location.href = "JoVE Labs.dc.html"; }
+    };
+
+    Object.keys(FEATURES).forEach((key) => {
+      const f = FEATURES[key];
+      const i = this.state.feature[key] || 0;
+      const m = f.metrics[i];
+      out[key + "Options"] = f.toggle;
+      out[key + "Metric"] = i;
+      out[key + "Label"] = m.label;
+      out[key + "Value"] = m.value;
+      out[key + "Pct"] = m.pct;
+      out[key + "Dir"] = m.dir;
+      out[key + "Current"] = m.current;
+      out[key + "Compare"] = m.compare;
+      out[key + "Max"] = niceMax(m.max);
+      if (key === "labs") {
+        out.labsFeatureChart = React.createElement(LabsHoverChart, { months: MONTHS, current: m.current, maxY: niceMax(m.max), height: 288 });
+      }
+      out[SETTER[key]] = (n) => this.setState((st) => {
+        const next = Object.assign({}, st.feature);
+        next[key] = n;
+        return { feature: next };
+      });
+    });
+
+    SOURCES.forEach((src, i) => {
+      out["v" + i] = src.value;
+      out["dir" + i] = src.dir;
+      out["d" + i] = src.noCompare ? null : (CV ? React.createElement(CV, { dir: src.dir }, src.delta) : src.delta);
+      out["a" + i] = this.state.source === i;
+      out["p" + i] = () => this.setState({ source: i });
+    });
+
+    return out;
+  }
+}
+
+</script>
+</body>
+</html>

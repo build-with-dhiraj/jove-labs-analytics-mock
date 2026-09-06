@@ -1,0 +1,15 @@
+/* JoVE Analytics — base element styles.
+   Kept intentionally light: brand font, ink, and canvas. */
+
+body {
+  font-family: var(--font-ui);
+  color: var(--ink-900);
+  background: var(--surface-2);
+  font-size: var(--t-body-size);
+  line-height: var(--t-body-lh);
+  -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
+}
+
+a { color: var(--blue-600); text-decoration: none; }
+a:hover { color: #0e63bd; text-decoration: underline; }
