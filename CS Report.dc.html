@@ -142,8 +142,6 @@ class Component extends DCLogic {
 
   renderVals() {
     const col = (header, key, kind, sub) => ({ header: header, key: key, kind: kind, sub: sub });
-    // Labs period sub-label keeps its period and gains a second line noting it is part of TAPV.
-    const subInTapv = (period) => React.createElement(React.Fragment, null, period, React.createElement("div", null, "included in TAPV"));
     return {
       searchWidth: 256,
       icoSearch: this.svg(["M11 3a8 8 0 1 0 0 16 8 8 0 0 0 0-16z", "m21 21-4.3-4.3"], 18),
@@ -164,8 +162,8 @@ class Component extends DCLogic {
         col("RPV TM", "rpvTm", "num", "Aug 2026"),
         col("BPV 12M", "bpv12", "num", "Sep 25 – Aug 26"),
         col("BPV TM", "bpvTm", "num", "Aug 2026"),
-        col("Labs video plays 12M", "labs12", "num", subInTapv("Sep 25 – Aug 26")),
-        col("Labs video plays TM", "labsTm", "num", subInTapv("Aug 2026"))
+        col("Labs video plays 12M", "labs12", "num", "Sep 25 – Aug 26"),
+        col("Labs video plays TM", "labsTm", "num", "Aug 2026")
       ]
     };
   }

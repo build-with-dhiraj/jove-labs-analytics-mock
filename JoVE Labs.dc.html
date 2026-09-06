@@ -187,7 +187,6 @@
               <div style="flex:1;min-width:8px"></div>
               <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.Button" variant="line" hint-size="150px,36px"><i data-lucide="download" style="width:16px;height:16px"></i>Export report</x-import>
             </div>
-            <p style="margin:0;padding:0 20px 12px;max-width:760px;font:400 12px/16px var(--font-ui);color:var(--ink-400);text-wrap:pretty">Last accessed comes from video plays and starts when plays carry the lab.</p>
             <div style="overflow-x:auto;border-top:1px solid var(--border-2)">
               <div style="min-width:5000px">
                 <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.DataTable" columns="{{ labCols }}" rows="{{ labRows }}" hint-size="100%,420px"></x-import>
@@ -198,7 +197,6 @@
             </sc-if>
           </div>
           <div style="display:flex;flex-direction:column;gap:4px;margin:12px 0 0">
-            <p style="margin:0;font:400 12px/16px var(--font-ui);color:var(--ink-400)">Blank until quiz results are tied to a lab.</p>
             <p style="margin:0;font:400 12px/16px var(--font-ui);color:var(--ink-400)">Plays by JoVE staff are not counted. Trial columns start when a PI owns the lab.</p>
           </div>
         </section>
@@ -410,7 +408,6 @@ class Component extends DCLogic {
 
     const col = (header, key, kind) => ({ header: header, key: key, kind: kind });
     const muted = (v) => React.createElement("span", { style: { color: "var(--ink-400)" } }, v);
-    const trainerSub = React.createElement("span", { style: { display: "block", width: 240, whiteSpace: "normal", textWrap: "pretty" } }, "Learn view and Trainee view. Watch Video, search, and Curate with AI start when those plays are stored.");
 
     return {
       searchWidth: 256,
@@ -452,7 +449,7 @@ class Component extends DCLogic {
         col("Videos in modules", "moduleVideos", "num"),
         col("Video plays", "secPv", "num"),
         col("Module page opens", "nonSecPv", "num"),
-        Object.assign(col("Trainer", "trainer", "num"), { sub: trainerSub }),
+        Object.assign(col("Trainer", "trainer", "num"), { sub: "Video plays" }),
         Object.assign(col("Trainee", "trainee", "num"), { sub: "Video plays" }),
         col("Module completion rate", "completion", "num"),
         col("Quiz pass rate", "quizPass", "num"),

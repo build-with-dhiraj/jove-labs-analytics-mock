@@ -114,9 +114,6 @@
                   <sc-if value="{{ selHasCompare }}">
                     <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.ChangeValue" dir="{{ selDir }}" hint-size="52px,20px">{{ selDelta }}</x-import>
                   </sc-if>
-                  <sc-if value="{{ selNoCompare }}" hint-placeholder-val="{{ true }}">
-                    <span style="font:400 14px/20px var(--font-ui);color:var(--ink-500)">New this period</span>
-                  </sc-if>
                 </div>
               </div>
               <sc-if value="{{ selHasCompare }}">
@@ -192,7 +189,6 @@
                       <div style="font:400 14px/20px var(--font-ui);color:var(--ink-550)">{{ labsLabel }}</div>
                       <div style="font:700 30px/36px var(--font-num);color:var(--ink-900);letter-spacing:-0.02em">{{ labsValue }}</div>
                     </div>
-                    <div style="margin-bottom:6px;font:400 14px/20px var(--font-ui);color:var(--ink-500)">New this period</div>
                   </div>
                 </div>
                 <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.SegmentedToggle" options="{{ labsOptions }}" value="{{ labsMetric }}" on-change="{{ setLabsMetric }}" style="white-space:nowrap" hint-size="200px,36px"></x-import>
@@ -340,7 +336,7 @@ const PW_DATA = {
   LTI: { creations: 2, views: "312", time: "46m", last: "1 Sep 2026" },
   Embed: { creations: 1, views: "82", time: "12m", last: "21 Aug 2026" },
   Labs: { creations: 1, views: "1,150", time: "4h 12m", last: "4 Sep 2026", split: [
-    { name: "Trainer", creations: 1, views: "840", time: "3h 05m", last: "4 Sep 2026", note: "Learn view and Trainee view. Previews and curation are not in this number yet." },
+    { name: "Trainer", creations: 1, views: "840", time: "3h 05m", last: "4 Sep 2026" },
     { name: "Trainee", creations: 0, views: "310", time: "1h 07m", last: "3 Sep 2026" }
   ] }
 };
@@ -467,15 +463,7 @@ class Component extends DCLogic {
       pwCol("Last Active", "last")
     ];
 
-    const timeCell = (v, note) => note
-      ? React.createElement("span", { style: { display: "flex", flexDirection: "column", gap: 2 } },
-          React.createElement("span", null, v),
-          React.createElement("span", { style: { font: "400 12px/16px var(--font-ui)", color: "var(--ink-400)", maxWidth: 260, whiteSpace: "normal", textWrap: "pretty" } }, note))
-      : v;
-    const timeNote = pwKey === "Labs" || pwKey === "All"
-      ? "Time on the page, not watch time. Watch Video, search, and Curate with AI do not add to this number."
-      : null;
-    const pwRows = [{ name: PW_PI, creations: pw.creations, views: pw.views, time: timeCell(pw.time, timeNote), last: pw.last }];
+    const pwRows = [{ name: PW_PI, creations: pw.creations, views: pw.views, time: pw.time, last: pw.last }];
     (pw.split || []).forEach((s2) => {
       pwRows.push({ name: child(s2.name, s2.note), creations: s2.creations, views: s2.views, time: s2.time, last: s2.last });
     });
