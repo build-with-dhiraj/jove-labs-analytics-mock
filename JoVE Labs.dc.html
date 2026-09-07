@@ -107,6 +107,12 @@
               </div>
             </div>
           </div>
+          <div style="margin-top:16px;background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:4px 0 0">
+            <h3 style="margin:0;padding:16px 20px 8px;font:600 16px/24px var(--font-ui);color:var(--ink-900)">Trials by institution</h3>
+            <div style="overflow-x:auto">
+              <x-import component-from-global-scope="JoVEAnalyticsDesignSystem_9803c3.DataTable" columns="{{ trialCols }}" rows="{{ trialRows }}" hint-size="100%,380px"></x-import>
+            </div>
+          </div>
         </section>
 
         <section style="margin:0 0 48px">
@@ -294,6 +300,24 @@ const GAP_ROWS = [
   { lab: "Flow Cytometry Basics", method: "Compensation controls", seen: "12 Aug 2026" }
 ];
 
+// Trials by institution — one row per institution with a PI in trial.
+// PIs in trial and Trials ended in period sum to the tiles above (9 and 3).
+const TRIAL_ROWS = [
+  { inst: "Harvard University", crm: 2179, sub: "Active subscriber", pis: 1, end: "26 Sep 2026", ended: 0, am: "Tom Weller" },
+  { inst: "Karolinska Institutet", crm: 1188, sub: "Active subscriber", pis: 1, end: "14 Sep 2026", ended: 1, am: "Tom Weller" },
+  { inst: "Charité Universitätsmedizin Berlin", crm: 3320, sub: "No subscription", pis: 1, end: "4 Oct 2026", ended: 0, am: "Marco Bianchi" },
+  { inst: "National University of Singapore", crm: 1502, sub: "Trial", pis: 1, end: "9 Sep 2026", ended: 0, am: "Marco Bianchi" },
+  { inst: "American University of Beirut Medical Center", crm: 2610, sub: "Active subscriber", pis: 1, end: "18 Sep 2026", ended: 0, am: "Tom Weller" },
+  { inst: "University of Toronto", crm: 1043, sub: "Active subscriber", pis: 1, end: "22 Sep 2026", ended: 1, am: "Rita Chen" },
+  { inst: "University of Ibadan", crm: 2044, sub: "Active subscriber", pis: 1, end: "28 Sep 2026", ended: 0, am: "Rita Chen" },
+  { inst: "Delft University of Technology", crm: 4102, sub: "Trial", pis: 1, end: "12 Oct 2026", ended: 1, am: "Marco Bianchi" },
+  { inst: "Universidad de Chile", crm: 2860, sub: "No subscription", pis: 1, end: "19 Oct 2026", ended: 0, am: "Rita Chen" }
+];
+
+// "9 Sep 2026" → sortable timestamp. String order would put 12 Oct before 9 Sep.
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const endTs = (s) => { const p = s.split(" "); return new Date(+p[2], MONTHS.indexOf(p[1]), +p[0]).getTime(); };
+
 class Component extends DCLogic {
   state = { dateBasis: "created", openLab: 99, openModule: "m1" };
 
@@ -415,6 +439,17 @@ class Component extends DCLogic {
       icoCalendar: this.svg(["M8 2v4", "M16 2v4", "M5 4h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z", "M3 10h18"]),
       icoFilter: this.svg(["M3 6h18", "M7 12h10", "M10 18h4"]),
       icoSearch: this.svg(["M11 3a8 8 0 1 0 0 16 8 8 0 0 0 0-16z", "m21 21-4.3-4.3"], 18),
+
+      trialCols: [
+        col("Insti. Name", "inst", "name"),
+        col("CRM ID", "crm"),
+        col("Subscription status", "sub"),
+        col("PIs in trial", "pis", "num"),
+        col("Earliest trial end", "end"),
+        col("Trials ended in period", "ended", "num"),
+        col("AM Name", "am")
+      ],
+      trialRows: TRIAL_ROWS.slice().sort((a, b) => endTs(a.end) - endTs(b.end)),
 
       gapCols: [col("Lab name", "lab", "name"), col("Method with no matching video", "method"), col("Date seen", "seen")],
       gapRows: GAP_ROWS.map((r) => ({ lab: muted(r.lab), method: muted(r.method), seen: muted(r.seen) })),
