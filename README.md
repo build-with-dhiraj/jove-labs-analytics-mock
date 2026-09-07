@@ -18,7 +18,7 @@ Open `index.html` (it redirects to `site/leadership.html`).
 | `site/education.html` | Education |
 | `site/jove-labs.html` | The new JoVE Labs page: Trial Summary, Adoption, Book a Demo and Recommend, Curation quality, Method Gaps, JoVE Labs Analysis |
 | `site/detailed-reports-is-lab.html` | Detailed reports, JoVE Labs Analysis tab (the other eleven tabs are exported too) |
-| `site/cs-report.html` | CS report, with the two Labs video plays columns |
+| `site/cs-report.html` | CS report |
 
 `stills/` holds full-page 1440-wide screenshots of those pages, for pasting into a
 doc or a deck. `site/_check/` holds the verification screenshots the export takes
