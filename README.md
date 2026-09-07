@@ -47,4 +47,4 @@ Both scripts need `npm install` here (puppeteer-core) and Google Chrome installe
 
 ## Sensitivity
 
-The Vercel URL is sensitive. Do not paste it into Jira.
+The site is public. Numbers are sample data, not JoVE production figures.
