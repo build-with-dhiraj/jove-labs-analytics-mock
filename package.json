@@ -1,0 +1,13 @@
+{
+  "name": "jove-labs-analytics-mock-export",
+  "private": true,
+  "type": "module",
+  "description": "Static export tooling for the analytics-ui CS mock. Drives headless Chrome over a locally running MOCK_DATA=1 analytics-ui and writes site/.",
+  "scripts": {
+    "export": "node scripts/export-static.mjs",
+    "shots": "node scripts/export-static.mjs --shots-only"
+  },
+  "dependencies": {
+    "puppeteer-core": "^24.9.0"
+  }
+}
