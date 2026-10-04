@@ -30,7 +30,7 @@ Open `index.html` for the three versions below.
 | `site/jove-labs.html` | JoVE Labs, Summary: adoption counts with their change in the period, customer page views by month with JoVE staff beside them, top labs, How we count |
 | `site/jove-labs-adoption.html` | JoVE Labs, Adoption: institution, lab, module, article, with labs, status, trainees, co-trainers, modules, quizzes, methods kept / edited and unavailable methods; the Unavailable methods lists at the bottom |
 | `site/jove-labs-usage.html` | JoVE Labs, Usage: the living usage sheet's three parts, label for label (Who viewed JoVE Labs, How lab members used their labs, the per-lab table) |
-| `site/jove-labs-trial.html` | JoVE Labs, Trial: the 7 Sep Trial Summary (four tiles, Trial Days Left, Trials by institution) |
+| `site/jove-labs-trial.html` | JoVE Labs, Trial, for Sales (approved 5 Oct): the 7 Sep Trial Summary's four cards, Trial Days Left and Trials by institution, plus four cards, the Labs PI trial path (ending at "In Salesforce", which Labs trials do not reach yet), Trials ending soon as the account manager's work list, more institution columns, other trials at these institutions, weekly trends and How we count |
 | `site/jove-labs-methods.html` | Redirects to the Unavailable methods section of Adoption |
 | `site/detailed-reports-is-lab.html` | Detailed reports, JoVE Labs Analysis tab (all twelve tabs are exported) |
 | `site/cs-report.html` | CS report |
@@ -82,6 +82,7 @@ Rendered from a local branch of `analytics-ui` (`labs-mock-2026-10-05`, on `main
    - Summary: activated institutions exceed institutions with a lab; the trend equals the client line; the counts equal Adoption; Leadership's JoVE Labs card equals all Labs page views.
    - Adoption institution rows equal their labs; Unavailable methods counts add up.
    - CS report totals equal the JoVE Labs tab; Trial tiles equal Trials by institution and Trial Days Left; Modules created equals the sample's modules in the period.
+   - Trial: active plus ended equals started; ending in 14 days is at most active and the Days Left buckets add up to active; calendar booked is at most asked for a demo, which is at most the trial PIs; trainees who recommended are at most those covered; the institution table's columns add up to the cards; the work list holds every active trial, fewest days left first; personal-trial status counts add up to their total; Labs views made on trial equals the Analysis table's Total Trial Views summed over every lab, and the weekly charts add up to the cards.
 4. `node scripts/export-static.mjs` drives headless Chrome (in UTC) over that server,
    waits for hydration and for the charts, then writes each route to `site/` with all
    JavaScript stripped, CSS and fonts copied alongside, and every URL rewritten to a
