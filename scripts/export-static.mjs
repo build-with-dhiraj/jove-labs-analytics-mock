@@ -65,7 +65,9 @@ const PAGES = [
   { file: "institutions.html", url: "/institutions", charts: false },
   { file: "institution-detail.html", url: "/institutions/2179", charts: true, before: PROFESSOR_LABS },
   { file: "education.html", url: "/education", charts: true },
-  { file: "jove-labs.html", url: "/jove-labs", charts: false, tables: false },
+  // Same CS scope as the Detailed reports tabs, so its JoVE Labs Analysis table shows
+  // the same rows and count as detailed-reports-is-lab.html.
+  { file: "jove-labs.html", url: `/jove-labs?${CS_SCOPE}`, charts: false },
   { file: "detailed-reports.html", url: `/detailed-reports?${CS_SCOPE}`, charts: false },
   { file: "cs-report.html", url: "/cs-report", charts: false },
   ...DETAILED_TABS.map((tab) => ({

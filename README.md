@@ -17,13 +17,15 @@ Open `index.html` (it redirects to `site/leadership.html`).
 | `site/institutions.html` | All institutions |
 | `site/institution-detail.html` | One institution (Harvard University, CRM ID 2179), with Professor Wise Usage set to "JoVE Labs" |
 | `site/education.html` | Education |
-| `site/jove-labs.html` | The JoVE Labs page: a placeholder while the page is redesigned (JVA-32350) |
+| `site/jove-labs.html` | The JoVE Labs page, the 7 Sep design carried over: Trial Summary, Adoption, Book a Demo and Recommend, Curation quality, Method Gaps, JoVE Labs Analysis |
 | `site/detailed-reports-is-lab.html` | Detailed reports, JoVE Labs Analysis tab (all twelve tabs are exported) |
 | `site/cs-report.html` | CS report |
 
 Detailed reports are shown the way a CS member sees them: production loads nothing
 there until an institution or a CS member is chosen, so the tabs are rendered for the
-fictional CS member Nadia Bramwell, whose institutions include Harvard University.
+fictional CS member Nadia Bramwell, whose institutions include Harvard University. The
+JoVE Labs page is rendered for the same CS member, so its JoVE Labs Analysis table shows
+the same rows and count as the Detailed reports JoVE Labs Analysis tab.
 
 `stills/` holds full-page 1440-wide screenshots of those pages, for pasting into a
 doc or a deck. `site/_check/` holds the verification screenshots the export takes
@@ -38,8 +40,11 @@ Everything on the pages is production code and production layout, with two
 exceptions that exist only on the local branch the mock is rendered from:
 
 1. The "JoVE Labs" item in the left rail, directly after Education.
-2. The `/jove-labs` page it links to, which shows a heading and one line pointing
-   at JVA-32350. Its design is not settled, so it carries no tiles or tables.
+2. The `/jove-labs` page it links to. This is the 7 Sep design, carried over with
+   its wording and sample values, and with Compare defaulting to None in the filter
+   bar. Its JoVE Labs Analysis section shows production's JoVE Labs Analysis table,
+   the same one the Detailed reports tab shows, fed by the same sample data. The
+   page's redesign is JVA-32350.
 
 ## How it was produced
 
