@@ -57,7 +57,7 @@ Everything not listed here is production code and production layout.
 1. The "JoVE Labs" item in the left rail, directly after Education. It is selected on the JoVE Labs pages.
 2. The JoVE Labs tab (Summary, Adoption, Usage, Trial) and the 7 Sep page at its own address.
 3. Feature Usage, on Leadership and the institution page: the JoVE Labs card offers Views, Labs created and Modules created, and still opens on Labs created. Modules created counts modules by their own created date.
-4. Detailed Reports, JoVE Labs Analysis: Neli's column order and labels (33 columns, with Product line and Subject), header tooltips, a data freshness note above the table and six totals under it. Views follow the house rules: sectional is an article page, non-sectional is every other Labs page, and Research plus Education equals the two. An article row counts only the views inside its own module. One lab is open through its first module.
+4. Detailed Reports, JoVE Labs Analysis: Neli's column order and labels (with Product line and Subject), with "lab" taken out of the headers so each one reads on a lab, module or article row, and the Usage tab's six trainee columns after No. of trainees joined, on lab rows only (39 columns), header tooltips, a data freshness note above the table and six totals under it. Views follow the house rules: sectional is an article page, non-sectional is every other Labs page, and Research plus Education equals the two. An article row counts only the views inside its own module. One lab is open through its first module.
 5. CS report: a JoVE Labs tab beside the existing report (named "Institution usage" there).
 
 ## How it was produced
@@ -77,6 +77,7 @@ Rendered from a local branch of `analytics-ui` (`labs-mock-2026-10-05`, on `main
 3. `npx tsx scripts/check-labs-mock.ts` on that branch asserts the arithmetic against
    the running server and stops the export if any check fails:
    - Analysis rows: Sectional plus Non-Sectional equals Research plus Education; the six totals equal the lab rows; invited is at least joined.
+   - Analysis trainees, lab by lab: joined via invite link plus via email equals joined; joined via email from CS plus from PI equals joined via email; invited by CS plus by PI equals invited; joins from CS or the PI never exceed their invites; module and article rows leave the six blank; all eight trainee columns equal the Usage tab's lab table.
    - Usage: every line's children add up to it, staff plus client is all, Sectional plus Non-sectional equals RPV plus EPV; the lab table's total equals How lab members used their labs; each lab matches Detailed reports.
    - Summary: activated institutions exceed institutions with a lab; the trend equals the client line; the counts equal Adoption; Leadership's JoVE Labs card equals all Labs page views.
    - Adoption institution rows equal their labs; Unavailable methods counts add up.
