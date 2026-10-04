@@ -46,17 +46,31 @@ const DETAILED_TABS = [
   "fam_access_codes",
 ];
 
+/**
+ * Detailed reports loads nothing until an institution or a CS member is chosen
+ * (production shows "Select an institution"), so the tabs are rendered the way a
+ * CS member sees them: fictional CS member Nadia Bramwell (9100), whose
+ * institutions include Harvard University (2179).
+ */
+const CS_SCOPE = "csUserId=9100";
+
+/** Professor Wise Usage is captured with its Feature dropdown on "JoVE Labs". */
+const PROFESSOR_LABS = async (page) => {
+  await page.select('select:has(option[value="labs"])', "labs");
+  await page.waitForFunction(() => document.body.innerText.includes("Time on the page, not watch time."));
+};
+
 const PAGES = [
   { file: "leadership.html", url: "/", charts: true },
   { file: "institutions.html", url: "/institutions", charts: false },
-  { file: "institution-detail.html", url: "/institutions/2179", charts: true },
+  { file: "institution-detail.html", url: "/institutions/2179", charts: true, before: PROFESSOR_LABS },
   { file: "education.html", url: "/education", charts: true },
-  { file: "jove-labs.html", url: "/jove-labs", charts: false },
-  { file: "detailed-reports.html", url: "/detailed-reports", charts: false },
+  { file: "jove-labs.html", url: "/jove-labs", charts: false, tables: false },
+  { file: "detailed-reports.html", url: `/detailed-reports?${CS_SCOPE}`, charts: false },
   { file: "cs-report.html", url: "/cs-report", charts: false },
   ...DETAILED_TABS.map((tab) => ({
     file: `detailed-reports-${tab.replace(/_/g, "-")}.html`,
-    url: `/detailed-reports?tab=${tab}`,
+    url: `/detailed-reports?${CS_SCOPE}&tab=${tab}`,
     charts: false,
   })),
 ];
@@ -166,7 +180,12 @@ async function rewriteAssetUrls(html) {
 // Page capture
 // ---------------------------------------------------------------------------
 
-async function waitForContent(page, wantCharts) {
+async function waitForContent(page, wantCharts, wantTables = true) {
+  if (!wantTables) {
+    await page.waitForFunction(() => document.querySelector("main h1") != null, { timeout: 120000 });
+    await page.evaluate(() => new Promise((r) => setTimeout(r, 1500)));
+    return;
+  }
   await page.waitForFunction(
     () => document.querySelectorAll("table tbody tr").length > 0,
     { timeout: 120000 }
@@ -212,9 +231,23 @@ async function main() {
 
     process.stdout.write(`  ${spec.file} … `);
     await page.goto(`${BASE}${spec.url}`, { waitUntil: "networkidle0", timeout: 180000 });
-    await waitForContent(page, spec.charts);
+    await waitForContent(page, spec.charts, spec.tables !== false);
+    if (spec.before) {
+      await spec.before(page);
+      await page.evaluate(() => new Promise((r) => setTimeout(r, 1000)));
+    }
 
     if (!SHOTS_ONLY) {
+      // A <select> changed after hydration keeps its choice only as a DOM property;
+      // write it into the markup so the static file shows the same option.
+      await page.evaluate(() => {
+        for (const sel of document.querySelectorAll("select")) {
+          for (const opt of sel.options) {
+            if (opt.selected) opt.setAttribute("selected", "");
+            else opt.removeAttribute("selected");
+          }
+        }
+      });
       const raw = await page.evaluate(() => document.documentElement.outerHTML);
       let html = stripScripts(raw);
       html = await rewriteAssetUrls(html);
@@ -232,7 +265,7 @@ async function main() {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>JoVE Analytics — CS mock</title>
+    <title>JoVE Analytics: CS mock</title>
     <meta http-equiv="refresh" content="0; url=leadership.html" />
   </head>
   <body><p><a href="leadership.html">Continue to the Leadership dashboard</a></p></body>
