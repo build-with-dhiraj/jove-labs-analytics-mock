@@ -74,13 +74,14 @@ const PAGES = [
   { file: "institutions.html", url: "/institutions", charts: false },
   { file: "institution-detail.html", url: "/institutions/2179", charts: true, before: PROFESSOR_LABS },
   { file: "education.html", url: "/education", charts: true },
-  // Same CS scope as the Detailed reports tabs, so its JoVE Labs Analysis table shows
-  // the same rows and count as detailed-reports-is-lab.html.
-  { file: "jove-labs.html", url: `/jove-labs?${CS_SCOPE}&section=summary`, charts: true, tables: false },
-  { file: "jove-labs-adoption.html", url: `/jove-labs?${CS_SCOPE}&section=adoption`, charts: false, tables: false },
-  { file: "jove-labs-methods.html", url: `/jove-labs?${CS_SCOPE}&section=methods`, charts: false, tables: false },
+  // The JoVE Labs tab opens on all institutions (CS member filter on "All CS/Sales Member").
+  { file: "jove-labs.html", url: "/jove-labs?section=summary", charts: 1 },
+  { file: "jove-labs-adoption.html", url: "/jove-labs?section=adoption", charts: false },
+  { file: "jove-labs-usage.html", url: "/jove-labs?section=usage", charts: false },
+  { file: "jove-labs-trial.html", url: "/jove-labs?section=trial", charts: false },
   { file: "detailed-reports.html", url: `/detailed-reports?${CS_SCOPE}`, charts: false },
   { file: "cs-report.html", url: "/cs-report", charts: false },
+  { file: "cs-report-labs.html", url: "/cs-report?view=labs", charts: false },
   ...DETAILED_TABS.map((tab) => ({
     file: `detailed-reports-${tab.replace(/_/g, "-")}.html`,
     url: `/detailed-reports?${CS_SCOPE}&tab=${tab}`,
@@ -195,10 +196,12 @@ function rewriteLinks(html) {
     const [path, query = ""] = href.split("?");
     if (path.startsWith("/_next/") || path.startsWith("/assets/")) return whole;
     if (path === "/jove-labs") {
-      if (query.includes("section=adoption")) return `href="jove-labs-adoption.html"`;
-      if (query.includes("section=methods")) return `href="jove-labs-methods.html"`;
+      for (const s of ["adoption", "usage", "trial"]) {
+        if (query.includes(`section=${s}`)) return `href="jove-labs-${s}.html"`;
+      }
       return `href="jove-labs.html"`;
     }
+    if (path === "/cs-report" && query.includes("view=labs")) return `href="cs-report-labs.html"`;
     const mapped = LINK_MAP.get(path);
     if (mapped) return `href="${mapped}"`;
     if (/^\/institutions\/\d+$/.test(path)) return `href="institution-detail.html"`;
@@ -239,9 +242,12 @@ async function waitForContent(page, wantCharts, wantTables = true) {
     { timeout: 120000 }
   );
   if (wantCharts) {
+    // `charts: true` waits for two charts; a number waits for that many.
+    const minCharts = wantCharts === true ? 2 : wantCharts;
     await page.waitForFunction(
-      () => document.querySelectorAll("svg.recharts-surface").length >= 2,
-      { timeout: 120000 }
+      (min) => document.querySelectorAll("svg.recharts-surface").length >= min,
+      { timeout: 120000 },
+      minCharts
     );
   }
   // Let recharts finish its enter animation and any late Suspense boundary resolve.
@@ -264,6 +270,9 @@ async function main() {
   for (const spec of PAGES) {
     const page = await browser.newPage();
     await page.setViewport(VIEWPORT);
+    // The server runs in UTC, as production does; render the client in UTC too, so the
+    // date range the filter bar shows is the range the numbers were computed for.
+    await page.emulateTimezone("UTC");
     page.on("console", (m) => {
       if (m.type() === "error") consoleErrors.push(`${spec.file}: ${m.text()}`);
     });
@@ -307,6 +316,21 @@ async function main() {
     await page.close();
     process.stdout.write("ok\n");
   }
+
+  // Unavailable methods moved into Adoption (5 Oct): the old address still works.
+  await writeFile(
+    join(OUT, "jove-labs-methods.html"),
+    `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JoVE Labs: Unavailable methods</title>
+    <meta http-equiv="refresh" content="0; url=jove-labs-adoption.html#unavailable-methods" />
+  </head>
+  <body><p><a href="jove-labs-adoption.html#unavailable-methods">Unavailable methods are now on the Adoption tab</a></p></body>
+</html>
+`
+  );
 
   await writeFile(
     join(OUT, "index.html"),
