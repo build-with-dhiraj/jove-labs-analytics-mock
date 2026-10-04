@@ -76,7 +76,7 @@ const PAGES = [
   { file: "education.html", url: "/education", charts: true },
   // Same CS scope as the Detailed reports tabs, so its JoVE Labs Analysis table shows
   // the same rows and count as detailed-reports-is-lab.html.
-  { file: "jove-labs.html", url: `/jove-labs?${CS_SCOPE}&section=summary`, charts: false, tables: false },
+  { file: "jove-labs.html", url: `/jove-labs?${CS_SCOPE}&section=summary`, charts: true, tables: false },
   { file: "jove-labs-adoption.html", url: `/jove-labs?${CS_SCOPE}&section=adoption`, charts: false, tables: false },
   { file: "jove-labs-methods.html", url: `/jove-labs?${CS_SCOPE}&section=methods`, charts: false, tables: false },
   { file: "detailed-reports.html", url: `/detailed-reports?${CS_SCOPE}`, charts: false },
@@ -96,6 +96,7 @@ const LINK_MAP = new Map([
   ["/institutions/2179", "institution-detail.html"],
   ["/education", "education.html"],
   ["/jove-labs", "jove-labs.html"],
+  ["/jove-labs-7-sep", "jove-labs-7-sep.html"],
   ["/detailed-reports", "detailed-reports.html"],
   ["/cs-report", "cs-report.html"],
 ]);
@@ -226,6 +227,10 @@ async function rewriteAssetUrls(html) {
 async function waitForContent(page, wantCharts, wantTables = true) {
   if (!wantTables) {
     await page.waitForFunction(() => document.querySelector("main h1") != null, { timeout: 120000 });
+    if (wantCharts) {
+      await page.waitForFunction(() => document.querySelectorAll("svg.recharts-surface").length >= 1, { timeout: 120000 });
+      await page.evaluate(() => new Promise((r) => setTimeout(r, 2500)));
+    }
     await page.evaluate(() => new Promise((r) => setTimeout(r, 1500)));
     return;
   }
