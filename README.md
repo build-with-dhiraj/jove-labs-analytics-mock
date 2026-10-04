@@ -17,9 +17,9 @@ Open `index.html` (it redirects to `site/leadership.html`).
 | `site/institutions.html` | All institutions |
 | `site/institution-detail.html` | One institution (Harvard University, CRM ID 2179), with Professor Wise Usage set to "JoVE Labs" |
 | `site/education.html` | Education |
-| `site/jove-labs.html` | JoVE Labs, Summary: client views and JoVE staff views |
-| `site/jove-labs-adoption.html` | JoVE Labs, Adoption: institution, lab, module, article |
-| `site/jove-labs-methods.html` | JoVE Labs, Unavailable methods |
+| `site/jove-labs.html` | JoVE Labs, Summary: who viewed, how labs are used, adoption, page views, follow-up, top labs |
+| `site/jove-labs-adoption.html` | JoVE Labs, Labs: institution, lab, module, article, with rollups |
+| `site/jove-labs-methods.html` | JoVE Labs, Unavailable methods: a count on the institution and on the lab |
 | `site/detailed-reports-is-lab.html` | Detailed reports, JoVE Labs Analysis tab (all twelve tabs are exported) |
 | `site/cs-report.html` | CS report |
 
@@ -44,7 +44,7 @@ exceptions that exist only on the local branch the mock is rendered from:
 1. The "JoVE Labs" item in the left rail, directly after Education. It is selected on the JoVE Labs pages.
 2. The JoVE Labs page: three tabs (Summary, Adoption, Unavailable methods). Summary shows client views and JoVE staff views. No trials table.
 3. Feature Usage on Leadership and the institution page adds Modules created beside Views and Labs created. The card still opens on Labs created.
-4. Detailed Reports, JoVE Labs Analysis, uses the column set in JVA-32350: module name and article title, product and product line, page-view names, trainees invited, a total row, and a once-a-day refresh note. One lab is expanded.
+4. Detailed Reports, JoVE Labs Analysis, follows Neli's 25 Sep column order with Dhanur's reading rules: Total Sectional Views, Total Non-Sectional Views, Total Research Views, Total Education Views, Total Trial Views, Trainer Views then Trainee Views, Module Name, trainees invited, product and product line, CRM ID and institution at the end, CS and AM email only. One lab is open through its first module.
 
 ## How it was produced
 
