@@ -164,6 +164,30 @@ function stripScripts(html) {
     .replace(/<template\b[^>]*id=["']?__NEXT[^>]*>[\s\S]*?<\/template>/gi, "");
 }
 
+/** The report tabs are buttons. With scripts stripped they do not change page, so each one becomes a link to the exported file. */
+const REPORT_TAB_FILES = [
+  ["Daywise usage", "detailed-reports-daywise-usage.html"],
+  ["Embed Usage", "detailed-reports-is-embed.html"],
+  ["LTI Usage", "detailed-reports-is-lti.html"],
+  ["LTI Engagement", "detailed-reports-lti-engagement.html"],
+  ["Professor Wise Usage", "detailed-reports-professor.html"],
+  ["Quiz Analysis", "detailed-reports-is-quiz.html"],
+  ["Playlist Analysis", "detailed-reports-playlist-analysis.html"],
+  ["Quiz per video Analysis", "detailed-reports-quiz-per-video.html"],
+  ["Playlist per video Analysis", "detailed-reports-playlist-per-video.html"],
+  ["MyClass Analysis", "detailed-reports-my-class-analysis.html"],
+  ["JoVE Labs Analysis", "detailed-reports-is-lab.html"],
+  ["FAM Access Codes", "detailed-reports-fam-access-codes.html"],
+];
+
+function linkReportTabs(html) {
+  return html.replace(/<button(\s[^>]*\brole="tab"[^>]*)>([\s\S]*?)<\/button>/g, (whole, attrs, inner) => {
+    const hit = REPORT_TAB_FILES.find(([label]) => inner.includes(label));
+    if (!hit) return whole;
+    return `<a href="${hit[1]}"${attrs.replace(' type="button"', "")}>${inner}</a>`;
+  });
+}
+
 /** Turn every internal route href into its exported filename; neutralise the rest. */
 function rewriteLinks(html) {
   return html.replace(/href="(\/[^"#]*)"/g, (whole, href) => {
@@ -271,6 +295,7 @@ async function main() {
       let html = stripScripts(raw);
       html = await rewriteAssetUrls(html);
       html = rewriteLinks(html);
+      html = linkReportTabs(html);
       await writeFile(join(OUT, spec.file), `<!doctype html>\n${html}`);
     }
 
