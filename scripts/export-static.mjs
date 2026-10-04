@@ -55,6 +55,15 @@ const DETAILED_TABS = [
 const CS_SCOPE = "csUserId=9100";
 
 /** Professor Wise Usage is captured with its Feature dropdown on "JoVE Labs". */
+const EXPAND_LAB = async (page) => {
+  const lab = await page.$('button[aria-label^="Expand "]');
+  if (!lab) return;
+  await lab.click();
+  await page.waitForFunction(() => document.body.innerText.includes("Module"));
+  const mod = await page.$('button[aria-label^="Expand "]');
+  if (mod) await mod.click();
+};
+
 const PROFESSOR_LABS = async (page) => {
   await page.select('select:has(option[value="labs"])', "labs");
   await page.waitForFunction(() => document.body.innerText.includes("Time on the page, not watch time."));
@@ -67,13 +76,16 @@ const PAGES = [
   { file: "education.html", url: "/education", charts: true },
   // Same CS scope as the Detailed reports tabs, so its JoVE Labs Analysis table shows
   // the same rows and count as detailed-reports-is-lab.html.
-  { file: "jove-labs.html", url: `/jove-labs?${CS_SCOPE}`, charts: false },
+  { file: "jove-labs.html", url: `/jove-labs?${CS_SCOPE}&section=summary`, charts: false, tables: false },
+  { file: "jove-labs-adoption.html", url: `/jove-labs?${CS_SCOPE}&section=adoption`, charts: false, tables: false },
+  { file: "jove-labs-methods.html", url: `/jove-labs?${CS_SCOPE}&section=methods`, charts: false, tables: false },
   { file: "detailed-reports.html", url: `/detailed-reports?${CS_SCOPE}`, charts: false },
   { file: "cs-report.html", url: "/cs-report", charts: false },
   ...DETAILED_TABS.map((tab) => ({
     file: `detailed-reports-${tab.replace(/_/g, "-")}.html`,
     url: `/detailed-reports?${CS_SCOPE}&tab=${tab}`,
     charts: false,
+    before: tab === "is_lab" ? EXPAND_LAB : undefined,
   })),
 ];
 
@@ -155,8 +167,13 @@ function stripScripts(html) {
 /** Turn every internal route href into its exported filename; neutralise the rest. */
 function rewriteLinks(html) {
   return html.replace(/href="(\/[^"#]*)"/g, (whole, href) => {
-    const [path] = href.split("?");
+    const [path, query = ""] = href.split("?");
     if (path.startsWith("/_next/") || path.startsWith("/assets/")) return whole;
+    if (path === "/jove-labs") {
+      if (query.includes("section=adoption")) return `href="jove-labs-adoption.html"`;
+      if (query.includes("section=methods")) return `href="jove-labs-methods.html"`;
+      return `href="jove-labs.html"`;
+    }
     const mapped = LINK_MAP.get(path);
     if (mapped) return `href="${mapped}"`;
     if (/^\/institutions\/\d+$/.test(path)) return `href="institution-detail.html"`;

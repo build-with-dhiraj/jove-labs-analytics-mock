@@ -17,7 +17,9 @@ Open `index.html` (it redirects to `site/leadership.html`).
 | `site/institutions.html` | All institutions |
 | `site/institution-detail.html` | One institution (Harvard University, CRM ID 2179), with Professor Wise Usage set to "JoVE Labs" |
 | `site/education.html` | Education |
-| `site/jove-labs.html` | The JoVE Labs page, the 7 Sep design carried over: Trial Summary, Adoption, Book a Demo and Recommend, Curation quality, Method Gaps, JoVE Labs Analysis |
+| `site/jove-labs.html` | JoVE Labs, Summary: client views and JoVE staff views |
+| `site/jove-labs-adoption.html` | JoVE Labs, Adoption: institution, lab, module, article |
+| `site/jove-labs-methods.html` | JoVE Labs, Unavailable methods |
 | `site/detailed-reports-is-lab.html` | Detailed reports, JoVE Labs Analysis tab (all twelve tabs are exported) |
 | `site/cs-report.html` | CS report |
 
@@ -39,12 +41,10 @@ were rendered in; tabs, dropdowns, menus and expanders do not respond to clicks.
 Everything on the pages is production code and production layout, with two
 exceptions that exist only on the local branch the mock is rendered from:
 
-1. The "JoVE Labs" item in the left rail, directly after Education.
-2. The `/jove-labs` page it links to. This is the 7 Sep design, carried over with
-   its wording and sample values, and with Compare defaulting to None in the filter
-   bar. Its JoVE Labs Analysis section shows production's JoVE Labs Analysis table,
-   the same one the Detailed reports tab shows, fed by the same sample data. The
-   page's redesign is JVA-32350.
+1. The "JoVE Labs" item in the left rail, directly after Education. It is selected on the JoVE Labs pages.
+2. The JoVE Labs page: three tabs (Summary, Adoption, Unavailable methods). Summary shows client views and JoVE staff views. No trials table.
+3. Feature Usage on Leadership and the institution page adds Modules created beside Views and Labs created. The card still opens on Labs created.
+4. Detailed Reports, JoVE Labs Analysis, uses the column set in JVA-32350: module name and article title, product and product line, page-view names, trainees invited, a total row, and a once-a-day refresh note. One lab is expanded.
 
 ## How it was produced
 
